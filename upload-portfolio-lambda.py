@@ -18,4 +18,5 @@ def lambda_handler(event, context):
             obj = myzip.open(name)
             portfolio_bucket.upload_fileobj(obj, name, ExtraArgs={'ContentType': mimetypes.guess_type(name)[0]})
             portfolio_bucket.Object(name).Acl().put(ACL='public-read')
+    print('Deployment done . . .')
     return 'Hello from deployment lambda . . .'
